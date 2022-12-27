@@ -1,5 +1,5 @@
 # faker_marketdata
-Generates random, valid market data for testing purposes.
+Generates random, valid market data identifiers for testing purposes.
 
 ## Installation
 
