@@ -51,8 +51,8 @@ class MarketDataProvider (BaseProvider):
         reserved = "00"
         org_id = "".join(self.rnd.choices(_alphanumeric_alph, k=12))
         partial_lei = "{}{}{}".format(lou, reserved, org_id)
-        checkum = sum(list(map(lambda x: _alph.index(x) if x in _alph else 0, partial_lei))) % 98
-        checksum = 98 - int(checkum)
+        checksum = sum(list(map(lambda x: _alph.index(x) if x in _alph else 0, partial_lei))) % 98
+        checksum = 98 - int(checksum)
         return "{}{}".format(partial_lei, checksum)
 
     def cusip(self):

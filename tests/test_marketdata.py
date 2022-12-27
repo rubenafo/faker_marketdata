@@ -8,10 +8,6 @@ class MarketDataTests(unittest.TestCase):
     def setUp(self):
         self.md = MarketDataProvider()
 
-    def test_sedol(self):
-        sedols = [self.md.sedol() for _ in range(10000)]
-        self.assertTrue(all(sedol for sedol in sedols))
-
     def test_figi(self):
         figis = [self.md.figi() for _ in range(10000)]
         self.assertTrue(all(figi for figi in figis))
@@ -40,6 +36,10 @@ class MarketDataTests(unittest.TestCase):
         rics = [self.md.ric() for _ in range(10000)]
         self.assertTrue(all(ric for ric in rics))
 
+    def test_cusip (self):
+        cusips = [self.md.cusip() for _ in range(10000)]
+        self.assertTrue(all(cusip for cusip in cusips))
+
     def test_sedol(self):
         sedols = [self.md.sedol() for _ in range(10000)]
         self.assertTrue(all(sedol for sedol in sedols))
@@ -63,7 +63,7 @@ class MarketDataTests(unittest.TestCase):
         faker2 = Faker()
         faker1.add_provider(MarketDataProvider(seed=23))
         faker2.add_provider(MarketDataProvider(seed=23))
-        self.assertEqual(faker1.isin(), faker2.isin())
+        self.assertEqual(faker1.sedol(), faker2.sedol())
 
 
 if __name__ == '__main__':
