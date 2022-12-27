@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="faker_marketdata",
-    version="0.1",
+    version="0.2",
     author="Ruben Afonso",
     author_email="rbfrancos@gmail.com",
     description="Sample market data for Faker",
@@ -17,4 +17,5 @@ setup(
         "Development Status :: 5 - Production/Stable"
     ],
     python_requires='>=3.6',
+    install_requires=['Faker>=9.3.1', 'pycountry>=22.3.5'],
 )
