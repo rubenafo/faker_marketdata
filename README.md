@@ -16,12 +16,12 @@ Add as a provider to your Faker instance:
 >>> fake = Faker()
 >>> fake.add_provider(MarketDataProvider())
 ```
-Optionally you can use a seed value to have repeatable output: 
+Optionally you can use a seed value to have repeatable identifiers: 
 ``` python
 >> fake.add_provider(MarketDataProvider(seed=1220))
 ```
 
-Now you can start to generate market data, some examples:
+Now you can start to generate market identifiers, some examples:
 ``` python
 >> fake.isin()   # "GTYMQXUIYPB6"
 >> fake.sedol()  # "NKDEKC8"
