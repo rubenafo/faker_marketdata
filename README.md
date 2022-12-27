@@ -18,7 +18,7 @@ Add as a provider to your Faker instance:
 ```
 Optionally you can use a seed value to have repeatable output: 
 ``` python
->> fake.add_provider(MarketDataProvider(see=1220))
+>> fake.add_provider(MarketDataProvider(seed=1220))
 ```
 
 Now you can start to generate market data, some examples:
