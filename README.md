@@ -1,5 +1,5 @@
 # faker_marketdata
-Generates random, valid market data for testing purposes.
+Generates random, valid market identifiers following most common formats in the industry.
 
 ## Installation
 
@@ -9,19 +9,19 @@ pip install faker_marketdata
 
 ## Usage
 
-Add as a provider to your Faker instance:
+Add as a provider to your [Faker](https://faker.readthedocs.io/en/master) instance:
 ``` python
 >>> from faker import Faker
 >>> from faker_marketdata import MarketDataProvider
 >>> fake = Faker()
 >>> fake.add_provider(MarketDataProvider())
 ```
-Optionally you can use a seed value to have repeatable output: 
+Optionally you can use a seed value to have repeatable identifiers: 
 ``` python
->> fake.add_provider(MarketDataProvider(see=1220))
+>> fake.add_provider(MarketDataProvider(seed=1220))
 ```
 
-Now you can start to generate market data, some examples:
+Now you can start to generate market identifiers, some examples:
 ``` python
 >> fake.isin()   # "GTYMQXUIYPB6"
 >> fake.sedol()  # "NKDEKC8"
@@ -30,7 +30,7 @@ Now you can start to generate market data, some examples:
 ```
 
 ## Documentation
-Supported market data identifiers:
+Supported market data formats:
 * ISIN
 * SEDOL
 * MIC
