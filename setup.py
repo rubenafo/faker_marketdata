@@ -6,7 +6,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="faker_marketdata",
-    version="0.3",
+    version="0.4",
     author="Ruben Afonso",
     author_email="rbfrancos@gmail.com",
     description="Sample market data for Faker",
