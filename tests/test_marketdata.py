@@ -1,3 +1,5 @@
+from faker import Faker
+
 from faker_marketdata import MarketDataProvider
 
 import unittest
@@ -6,7 +8,8 @@ import unittest
 class MarketDataTests(unittest.TestCase):
 
     def setUp(self):
-        self.md = MarketDataProvider()
+        self.md = Faker()
+        self.md.add_provider(MarketDataProvider)
 
     def test_figi(self):
         figis = [self.md.figi() for _ in range(10000)]
@@ -48,22 +51,35 @@ class MarketDataTests(unittest.TestCase):
         tickers = [self.md.ticker() for _ in range(10000)]
         self.assertTrue(all(ticker for ticker in tickers))
 
+
+class FakerIntegrationTests(unittest.TestCase):
     """
     Tests integration with Faker
     """
     def test_faker_provider(self):
-        from faker import Faker
         fake = Faker()
-        fake.add_provider(MarketDataProvider())
+        fake.add_provider(MarketDataProvider)
         self.assertTrue(fake.sedol())
 
-    def test_seed_fixes_random (self):
-        from faker import Faker
+    def test_seed_fixes_random(self):
         faker1 = Faker()
         faker2 = Faker()
-        faker1.add_provider(MarketDataProvider(seed=23))
-        faker2.add_provider(MarketDataProvider(seed=23))
-        self.assertEqual(faker1.sedol(), faker2.sedol())
+        faker1.add_provider(MarketDataProvider)
+        faker2.add_provider(MarketDataProvider)
+
+        Faker.seed(123)
+        sedol1 = faker1.sedol()
+        Faker.seed(123)
+        sedol2 = faker2.sedol()
+        self.assertEqual(sedol1, sedol2)
+
+    def test_existing_fake_methods_still_work(self):
+        fake = Faker()
+        fake.add_provider(MarketDataProvider)
+        sedol = fake.sedol()
+        self.assertTrue(sedol)
+        random_str = fake.lexify("???????")
+        self.assertTrue(random_str)
 
 
 if __name__ == '__main__':

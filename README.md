@@ -14,7 +14,7 @@ Add as a provider to your [Faker](https://faker.readthedocs.io/en/master) instan
 >>> from faker import Faker
 >>> from faker_marketdata import MarketDataProvider
 >>> fake = Faker()
->>> fake.add_provider(MarketDataProvider())
+>>> fake.add_provider(MarketDataProvider)
 ```
 Optionally you can use a seed value to have repeatable identifiers: 
 ``` python
