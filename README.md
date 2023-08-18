@@ -19,7 +19,7 @@ Add as a provider to your [Faker](https://faker.readthedocs.io/en/master) instan
 Optionally you can define a seed value to have repeatable identifiers: 
 ``` python
 >> Faker.seed(123)
->> fake.add_provider(MarketDataProvider())
+>> fake.add_provider(MarketDataProvider)
 ```
 
 Now you can start to generate market identifiers, some examples:
